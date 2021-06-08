@@ -15,19 +15,8 @@ Code that builds on Linux or iOS will generally build on CircleCI 2.0. We’ve c
 {% include snippets/language-guides.md %}
 
 ## Supported languages
-{: #supported-languages }
-- Clojure (v1.2.0 and later)
-- Elixir (v1.2 and later)
-- Go (v1.7 and later)
-- Java (Java 8 and later)
-- JavaScript (Node.js 4 and later)
-- PHP (PHP 5 and later)
-- Python (Python 2 and later)
-- React Native
-- Ruby on Rails (Ruby 2 and later)
-- Scala and sbt
 
-Build projects in C, C#, C++, Clojure, Elixir, Erlang, Go, Groovy, Haskell, Haxe, Java, JavaScript, Node.js, Perl, PHP, Python, Ruby, Rust, Scala and many more.
+The above sample apps are just a selection of popular languages & frameworks that demonstrate how they may run on CircleCI; less common languages will still happily build on CircleCI.
 
 ## See also
 {: #see-also }

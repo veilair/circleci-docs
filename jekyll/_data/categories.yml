@@ -99,9 +99,6 @@
   slug: troubleshooting
   name: "Troubleshooting"
 
-- section: cci2
-  slug: language-guides
-  name: "Language Guides"
 
 - section: cci2
   slug: reference
