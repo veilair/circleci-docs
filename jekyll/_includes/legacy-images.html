@@ -1,0 +1,95 @@
+<style>
+
+  #legacy-images-search {
+    display: flex;
+    max-height: 600px;
+    overflow: auto;
+    border: 1px solid lightgrey;
+  }
+
+  .image-picker {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    flex: 1;
+  }
+
+  .image {
+    border-bottom: 1px solid lightgrey;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .selected {
+    background: #04AA51;
+    color: white;
+  }
+
+  .tags {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    border-left: 1px solid lightgrey;
+    max-height: 600px;
+    padding: 16px;
+    overflow: auto;
+  }
+
+  .image {
+    padding: 8px;
+  }
+
+  .tab-box {
+    background: light-blue;
+    overflow: scroll;
+  }
+</style>
+
+{% raw %}
+<div id="legacy-images-search">
+  <div class="image-picker">
+    <div v-for="(lang, index) in images">
+      <div class="image"  v-bind:class="{selected: index === selectedLang}" v-on:click="selectLang(index)">
+        {{ lang[1].name }}
+      </div>
+    </div>
+  </div>
+
+  <div class="tags">
+    <div class="tag" v-for="(tag) in getTags">
+      {{tag}}
+    </div>
+  </div>
+
+</div>
+{% endraw %}
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<script>
+  var images = JSON.parse(decodeURIComponent("{{include.images | jsonify | uri_escape}}"))
+  window.__convenienceImages = images
+
+  var app = new Vue({
+    el: '#legacy-images-search',
+    data: {
+      images: window.__convenienceImages,
+      selectedLang: 0
+    },
+    methods: {
+      selectLang: function(e) {
+        this.selectedLang = e
+      },
+
+      isSelected: function(currLang) {
+        return currLang === this.selectedLang
+      },
+    },
+    computed: {
+      getTags: function() {
+        return this.images[this.selectedLang][1].tags
+      }
+    }
+  })
+
+</script>
