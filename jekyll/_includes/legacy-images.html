@@ -21,6 +21,15 @@
     padding: 8px 8px 8px 16px;
   }
 
+  .list-container {
+    max-height: 600px;
+    overflow: auto;
+  }
+
+  .search-wrap {
+
+  }
+
   .selected {
     background: #04AA51;
     color: white;
@@ -78,9 +87,11 @@
       <input class="search-box" v-model="imageFilter" placeholder="Search Images..." />
       <i v-show="imageFilter" v-on:click="clearImageFilter" class="close-icon fa fa-times-circle"/>
     </div>
-    <div v-for="(lang, tags, index) in filteredImages">
-      <div class="image"  v-bind:class="{selected: lang === selectedLang}" v-on:click="selectLang(lang)">
-        {{ lang }}
+    <div class="list-container">
+      <div v-for="(lang, tags, index) in filteredImages">
+        <div class="image"  v-bind:class="{selected: lang === selectedLang}" v-on:click="selectLang(lang)">
+          {{ lang }}
+        </div>
       </div>
     </div>
   </div>
@@ -90,9 +101,11 @@
       <input class="search-box" v-model="tagFilter" v-bind:placeholder="tagInputPlaceholder" />
       <i v-show="tagFilter" v-on:click="clearTagFilter" class="close-icon fa fa-times-circle"/>
     </div>
-    <div v-for="(tag, index) in filteredTags">
-      <div class="tag" v-bind:class="{'tag-alternating': index % 2}">
-        {{tag}}
+    <div class="list-container">
+      <div v-for="(tag, index) in filteredTags">
+        <div class="tag" v-bind:class="{'tag-alternating': index % 2}">
+          {{tag}}
+        </div>
       </div>
     </div>
 

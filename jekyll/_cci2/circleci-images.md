@@ -337,9 +337,10 @@ The following packages are installed via `curl` or other means.
 ## Latest image tags by language
 {: #latest-image-tags-by-language }
 
-Below is a list of the latest **legacy** convenience images, sorted by language.
-For details about the contents of each image,
-refer to the [corresponding Dockerfiles](https://github.com/circleci-public/circleci-dockerfiles).
+Below is a filterable list of the latest **legacy** convenience images. Click on
+the image to view and search what tags are available. For details about the
+contents of each image, refer to the [corresponding
+Dockerfiles](https://github.com/circleci-public/circleci-dockerfiles).
 
 
 <div class="alert alert-warning" role="alert">
@@ -357,44 +358,8 @@ by upstream projects. Do not assume that a given tag has the same meaning across
 images!
 
 {% assign images = site.data.docker-image-tags | sort %}
-{% for image in images %}
 
-### {{ image[1].name }}
-{: # {{image1name}} }
-{:.no_toc}
-
-**Resources:**
-
-- [DockerHub](https://hub.docker.com/r/circleci/{{ image[0] }}) - where this image is hosted as well as some useful instructions.
-- [Dockerfiles](https://github.com/CircleCI-Public/circleci-dockerfiles/tree/master/{{ image[0] }}/images) - the Dockerfiles this image was built from.
-
-**Usage:** Add the following under `docker:` in your config.yml:
-
-`- image: circleci/{{ image[0] }}:[TAG]`
-
-**Recent Tags:** <small>(View all available image tags [here]({{ site.baseurl }}/2.0/docker-image-tags.json){:target="_blank"})</small>
-
-<ul class="list-3cols">
-{% assign tags = image[1].tags | sort | reverse %}
-{% assign tagCounter = 1 %}
-{% for tag in tags %}
-	{% if tagCounter > 99 %}
-		{% break %}
-	{% endif %}
-	{% unless tag contains "-browsers" or tag contains "-node" or tag contains "-ram" %}
-	<li>{{ tag }}</li>
-	{% assign tagCounter = tagCounter | plus:1 %}
-	{% endunless %}
-{% endfor %}
-</ul>
-
-
-<br/>
-Note: Any variants available for this image can be used by appending the variant tag to the tags above. View all available image tags [here]({{ site.baseurl }}/2.0/docker-image-tags.json){:target="_blank"}.
-
----
-
-{% endfor %}
+{% include legacy-images.html images=images %}
 
 ## See also
 {: #see-also }
@@ -405,4 +370,3 @@ Note: Any variants available for this image can be used by appending the variant
 - See [Running Docker Commands]({{ site.baseurl }}/2.0/building-docker-images/) for information about how to build Docker images.
 
 
-{% include legacy-images.html images=images %}
