@@ -18,6 +18,7 @@
     border-bottom: 1px solid lightgrey;
     cursor: pointer;
     font-weight: bold;
+    padding: 8px 8px 8px 16px;
   }
 
   .selected {
@@ -43,20 +44,25 @@
   }
 
 
-  .image {
-    padding: 8px;
-  }
 
   .sticky-search {
     position: sticky;
     padding: 8px;
     border-bottom: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+  }
+
+  .close-icon {
+    cursor: pointer;
+    padding: 0 4px;
   }
 
   .search-box {
     width: 100%;
     border: none;
     padding: 8px;
+    outline: none;
   }
 
   .tab-box {
@@ -70,6 +76,7 @@
   <div class="image-picker">
     <div class="sticky-search">
       <input class="search-box" v-model="imageFilter" placeholder="Search Images..." />
+      <i v-show="imageFilter" v-on:click="clearImageFilter" class="close-icon fa fa-times-circle"/>
     </div>
     <div v-for="(lang, tags, index) in filteredImages">
       <div class="image"  v-bind:class="{selected: lang === selectedLang}" v-on:click="selectLang(lang)">
@@ -81,6 +88,7 @@
   <div class="tags">
     <div class="sticky-search">
       <input class="search-box" v-model="tagFilter" v-bind:placeholder="tagInputPlaceholder" />
+      <i v-show="tagFilter" v-on:click="clearTagFilter" class="close-icon fa fa-times-circle"/>
     </div>
     <div v-for="(tag, index) in filteredTags">
       <div class="tag" v-bind:class="{'tag-alternating': index % 2}">
@@ -118,6 +126,8 @@
       isSelected: function(currLang) {
         return currLang === this.selectedLang
       },
+      clearImageFilter: function() {this.imageFilter = ""},
+      clearTagFilter:   function() {this.tagFilter = ""}
     },
     computed: {
 
@@ -126,7 +136,6 @@
       },
 
       getTags: function() {
-        // return this.images[this.selectedLang][1].tags
         return this.images[this.selectedLang]
 
       },
@@ -138,7 +147,6 @@
       },
 
       filteredTags() {
-        // console.log(this.getTags())
         return this.getTags.filter(tag => {
           return tag.toLowerCase().includes(this.tagFilter.toLowerCase())
         })
