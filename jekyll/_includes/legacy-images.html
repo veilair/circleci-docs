@@ -31,11 +31,31 @@
     flex: 2;
     border-left: 1px solid lightgrey;
     max-height: 600px;
-    padding: 16px;
     overflow: auto;
   }
 
+  .tag {
+    padding: 4px 16px;
+  }
+
+  .tag-alternating {
+    background: #eee;
+  }
+
+
   .image {
+    padding: 8px;
+  }
+
+  .sticky-search {
+    position: sticky;
+    padding: 8px;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .search-box {
+    width: 100%;
+    border: none;
     padding: 8px;
   }
 
@@ -48,18 +68,25 @@
 {% raw %}
 <div id="legacy-images-search">
   <div class="image-picker">
-    <div v-for="(lang, index) in images">
-      <div class="image"  v-bind:class="{selected: index === selectedLang}" v-on:click="selectLang(index)">
-        {{ lang[1].name }}
+    <div class="sticky-search">
+      <input class="search-box" v-model="imageFilter" placeholder="Search Images..." />
+    </div>
+    <div v-for="(lang, tags, index) in filteredImages">
+      <div class="image"  v-bind:class="{selected: lang === selectedLang}" v-on:click="selectLang(lang)">
+        {{ lang }}
       </div>
     </div>
   </div>
 
   <div class="tags">
-    <div class="tag" v-for="(tag) in getTags">
-      {{tag}}
+    <div class="sticky-search">
+      <input class="search-box" v-model="tagFilter" v-bind:placeholder="tagInputPlaceholder" />
     </div>
-  </div>
+    <div v-for="(tag, index) in filteredTags">
+      <div class="tag" v-bind:class="{'tag-alternating': index % 2}">
+        {{tag}}
+      </div>
+    </div>
 
 </div>
 {% endraw %}
@@ -67,18 +94,25 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
 <script>
-  var images = JSON.parse(decodeURIComponent("{{include.images | jsonify | uri_escape}}"))
+  var raw_images = JSON.parse(decodeURIComponent("{{include.images | jsonify | uri_escape}}"))
+  var images = {}
+  raw_images.forEach(function(img) {
+    images[img[1].name] = img[1].tags
+  })
   window.__convenienceImages = images
 
   var app = new Vue({
     el: '#legacy-images-search',
     data: {
       images: window.__convenienceImages,
-      selectedLang: 0
+      selectedLang: "Android",
+      imageFilter: "",
+      tagFilter: ""
     },
     methods: {
       selectLang: function(e) {
-        this.selectedLang = e
+        this.selectedLang = e;
+        this.tagFilter = "";
       },
 
       isSelected: function(currLang) {
@@ -86,9 +120,29 @@
       },
     },
     computed: {
+
+      tagInputPlaceholder: function() {
+        return "Search " + this.selectedLang + " tags..."
+      },
+
       getTags: function() {
-        return this.images[this.selectedLang][1].tags
-      }
+        // return this.images[this.selectedLang][1].tags
+        return this.images[this.selectedLang]
+
+      },
+
+      filteredImages() {
+        return Object.keys(this.images).filter(image => {
+          return image.toLowerCase().includes(this.imageFilter.toLowerCase())
+        })
+      },
+
+      filteredTags() {
+        // console.log(this.getTags())
+        return this.getTags.filter(tag => {
+          return tag.toLowerCase().includes(this.tagFilter.toLowerCase())
+        })
+      },
     }
   })
 
