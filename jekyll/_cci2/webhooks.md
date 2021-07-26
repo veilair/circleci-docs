@@ -58,8 +58,20 @@ Webhooks are set up on a per-project basis. To get started:
 
 <sup>1</sup>Only leave this unchecked for testing purposes.
 
+## How webhooks are sent
+
+CircleCI sends webhooks as `HTTP POST` requests to the URL that is configured
+when a webhook is created. The body of these requests is always JSON encoded as
+UTF-8.
+
+CircleCI expects to receive a `2xx` HTTP response; any other response will be
+treated as an error. The request has a connection time out and a socket timeout.
+Currently, CircleCI does not retry sending webhooks at present, although this
+may change in the future.
+
 ## Event Specifications
 {: #event-specifications}
+
 
 CircleCI currently offers webhooks for the following events:
 
