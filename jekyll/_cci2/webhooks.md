@@ -1,8 +1,8 @@
 ---
 layout: classic-docs
 title: "Webhooks"
-short-title: "Using Webhooks to subscribe to CircleCI events"
-description: "Using Webhooks to subscribe to CircleCI events"
+short-title: "Using webhooks to subscribe to CircleCI events"
+description: "Using webhooks to subscribe to CircleCI events"
 version:
 - Cloud
 ---
@@ -13,14 +13,14 @@ version:
 A webhook allows you to connect a platform you manage (either an API you create
 yourself, or a third party service) to a stream of future _events_.
 
-Setting up a Webhook on CircleCI enables you to receive information (referred to
+Setting up a webhook on CircleCI enables you to receive information (referred to
 as _events_) from CircleCI, as they happen. This can help you avoid polling the
 API or manually checking the CircleCI web application for desired information.
 
 The rest of this document will detail how to set up a webhook as well as the
 shape of events that will be sent to your webhook destination.
 
-**Note:** The Webhooks feature on CircleCI is currently in preview; documentation and features may change or be added to.
+**Note:** The webhooks feature on CircleCI is currently in preview; documentation and features may change or be added to.
 
 ## Use cases
 {: #use-cases}
@@ -44,7 +44,7 @@ Webhooks are set up on a per-project basis. To get started:
 1. Click on **Project Settings**.
 1. In the sidebar of your Project Settings, click on **Webhooks**.
 1. Click **Add Webhook**.
-1. Fill out the Webhook form (the table below describes the fields and their intent):
+1. Fill out the webhook form (the table below describes the fields and their intent):
 1. Provided your receiving API or third party service is set up, click **Test Ping Event** to dispatch a test event.
 
 | Field                  | Required? | Intent                                                                                      |
@@ -72,7 +72,7 @@ CircleCI currently offers webhooks for the following events:
 ## Common top level keys
 {: #common-top-level-keys}
 
-Each Webhook will have some common data as part of the event:
+Each webhook will have some common data as part of the event:
 
 | Field       | Description                                                                                        | Type   |
 |-------------|----------------------------------------------------------------------------------------------------|--------|
