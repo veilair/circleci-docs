@@ -1,0 +1,20 @@
+[0m2021.09.13 11:32:54 INFO  Started: Metals version 0.10.6 in workspace '/Users/nramabadran/Desktop/Active/circleci-docs' for client Visual Studio Code 1.60.0.[0m
+[0m2021.09.13 11:32:55 INFO  time: initialize in 0.98s[0m
+[0m2021.09.13 11:32:56 WARN  Build server is not auto-connectable.[0m
+[0m2021.09.13 11:32:56 WARN  no build tool detected in workspace '/Users/nramabadran/Desktop/Active/circleci-docs'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.09.13 11:34:58 INFO  shutting down Metals[0m
+[0m2021.09.15 12:19:46 INFO  Started: Metals version 0.10.6 in workspace '/Users/nramabadran/Desktop/Active/circleci-docs' for client Visual Studio Code 1.60.1.[0m
+[0m2021.09.15 12:19:46 INFO  time: initialize in 0.55s[0m
+[0m2021.09.15 12:19:58 WARN  Build server is not auto-connectable.[0m
+[0m2021.09.15 12:19:58 WARN  no build tool detected in workspace '/Users/nramabadran/Desktop/Active/circleci-docs'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.09.15 12:20:24 INFO  shutting down Metals[0m
+[0m2021.09.16 15:45:10 INFO  Started: Metals version 0.10.6 in workspace '/Users/nramabadran/Desktop/Active/circleci-docs' for client Visual Studio Code 1.60.1.[0m
+[0m2021.09.16 15:45:11 INFO  time: initialize in 0.59s[0m
+[0m2021.09.16 15:45:15 WARN  Build server is not auto-connectable.[0m
+[0m2021.09.16 15:45:15 WARN  no build tool detected in workspace '/Users/nramabadran/Desktop/Active/circleci-docs'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.09.16 16:17:30 INFO  shutting down Metals[0m
+[0m2021.09.21 08:51:27 INFO  Started: Metals version 0.10.7 in workspace '/Users/nramabadran/Desktop/Active/circleci-docs' for client Visual Studio Code 1.60.1.[0m
+[0m2021.09.21 08:51:28 INFO  time: initialize in 0.7s[0m
+[0m2021.09.21 08:51:29 WARN  Build server is not auto-connectable.[0m
+[0m2021.09.21 08:51:29 WARN  no build tool detected in workspace '/Users/nramabadran/Desktop/Active/circleci-docs'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.09.21 10:18:17 INFO  shutting down Metals[0m
