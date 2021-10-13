@@ -351,3 +351,13 @@ $( document ).ready(function() {
   // 	analytics.identify(userData['analytics_id']);
   // });
 });
+
+$( document ).ready(function() {
+  $("#main a").not('.license-notice *').each(function () {
+    var href = $(this).attr('href')
+    if(!href.includes('#') && !((href.includes('/docs/2.0') && !href.includes('/docs/2.0/api')))){
+      $(this).removeClass().addClass("external-link-icon")
+      $(this).attr('target', '_blank')
+    }
+  });
+});
