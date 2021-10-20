@@ -350,14 +350,6 @@ $( document ).ready(function() {
   // });
 });
 
-<<<<<<< HEAD
-$( document ).ready(function() {
-  $("#main a").not('.license-notice *').each(function () {
-    var href = $(this).attr('href')
-    if(!href.includes('#') && !((href.includes('/docs/2.0') && !href.includes('/docs/2.0/api')))){
-      $(this).removeClass().addClass("external-link-icon")
-      $(this).attr('target', '_blank')
-=======
 $(document).ready(function() {
   $("#main a").not('.license-notice *').each(function () {
     $(this).wrap("<div class='external-link-tag-wrapper'></div>")
@@ -366,7 +358,6 @@ $(document).ready(function() {
       $(inlineSVG).appendTo(this);
       $(this).attr('target', '_blank')
       $(this).attr('rel', 'noopener noreferrer')
->>>>>>> 7aaf320eef00c206a1339c1ecad526336dd5f8de
     }
   });
 });
