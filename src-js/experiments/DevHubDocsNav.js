@@ -22,7 +22,9 @@ $(() => {
       });
 
       // aside.full-height used to adjust the top property for the sidenav while Docs-Devhub merge experiment is running
-      $("aside.full-height").css('top', '111px');
+      // $("aside.full-height").css('top', '111px');
+      $("aside.full-height").children().wrapAll("<div style='position: sticky;'></div>")
+      $("aside.full-height").replaceWith($('<div>' + this.innerHTML + '</div>'));
     }
   })
 });
