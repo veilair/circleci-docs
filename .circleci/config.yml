@@ -130,7 +130,7 @@ jobs:
   js_build: # this job is responsible for building Javascript assets and making them available for the "build" job
     executor: # we specify our executor to use the node orb.
       name: node/default
-      tag: '14.18.1'
+      tag: '14.17.3'
     steps:
       - *attach_workspace
       - checkout # get the code from GitHub
@@ -172,7 +172,7 @@ jobs:
   build_api_docs: # a job to manage building our api documentation and persisting it to the workspace
     executor:
       name: ruby/default
-      tag: '3.0.0-browsers'
+      tag: '2.6.8-browsers'
     steps:
       - checkout
       - install-shared-assets
@@ -209,7 +209,7 @@ jobs:
   build:
     executor:
       name: ruby/default
-      tag: '3.0.0-node'
+      tag: '2.6.8-node'
     resource_class: medium+
     working_directory: ~/circleci-docs
     environment:
@@ -292,7 +292,7 @@ jobs:
   reindex-search:
     executor:
       name: ruby/default
-      tag: '3.0.0-browsers'
+      tag: '2.6.8-browsers'
     working_directory: ~/circleci-docs
     environment:
       JEKYLL_ENV: production
