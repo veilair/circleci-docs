@@ -172,7 +172,7 @@ jobs:
   build_api_docs: # a job to manage building our api documentation and persisting it to the workspace
     executor:
       name: ruby/default
-      tag: '2.7.2-browsers'
+      tag: '3.0.0-browsers'
     steps:
       - checkout
       - install-shared-assets
@@ -209,7 +209,7 @@ jobs:
   build:
     executor:
       name: ruby/default
-      tag: '2.6.8-browsers'
+      tag: '3.0.0-node'
     resource_class: medium+
     working_directory: ~/circleci-docs
     environment:
@@ -292,7 +292,7 @@ jobs:
   reindex-search:
     executor:
       name: ruby/default
-      tag: '2.7.2-browsers'
+      tag: '3.0.0-browsers'
     working_directory: ~/circleci-docs
     environment:
       JEKYLL_ENV: production
