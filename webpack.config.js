@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -23,9 +23,9 @@ module.exports = {
       jQuery: 'jquery',
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css",
-    })
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
   ],
   module: {
     rules: [
@@ -34,22 +34,21 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
           // fallback to style-loader in development
-          process.env.NODE_ENV !== "production"
-            ? "style-loader"
+          process.env.NODE_ENV !== 'production'
+            ? 'style-loader'
             : MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader",
+          'css-loader',
+          'sass-loader',
         ],
       },
-
-    ]
-  }
+    ],
+  },
 };
