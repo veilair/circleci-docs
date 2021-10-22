@@ -9,7 +9,7 @@
 *.adoc @circleci/docs @circleci/translations
 *.pdf @circleci/docs @circleci/translations
 
-/jekyll/*.md @circleci/translations
+/jekyll/**/*.md @circleci/translations
 
 /src-js/** @circleci/docs-disco
 ./package*.json @circleci/docs-disco
