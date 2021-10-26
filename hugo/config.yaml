@@ -1,0 +1,89 @@
+baseURL: http://localhost:4040/docs
+disablePathToLower: true
+languageCode: en-us
+title: CircleCI Documentation
+
+# TODO TEES ignoring ascidoc until finding how to set that up with hugo.
+ignorefiles: ["_*.adoc", "project-walkthrough.md"]
+
+markup:
+  highlight:
+    codeFences: false
+    # noClasses: true
+
+
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    parser:
+      attribute:
+        block: true
+        title: true
+      autoHeadingID: true
+      autoHeadingIDType: github
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false
+
+
+# Set default "cascade" front matter
+# this is useful for setting entire folders to be of a specific language
+cascade:
+- _target:
+    path: /2.0/**
+  lang: en # all pages under /2.0/** will have front matter where lang = en.
+
+
+## Static Assets --
+## Static assets are aggregated from two places:
+### - Theme - (css, js, images specific to the styling of the site)
+### - Root folder  - (screenshots used for content).
+# staticDir:
+# - static
+# - themes/docs-theme/static
+
+
+#
+# All custom site variables go under "params"
+params:
+  gh_url: "https://github.com/circleci/circleci-docs"
+
+  optimizely: "GfYszBpMkefBSwiiEkH3b3"
+
+
+
+  rollbar_env: development
+
+
+  algolia:
+    application_id: U0RXNGRK45
+    api_key: dd49f5b81d238d474b49645a4daed322 # search-only API Key; safe for front-end code
+    index_name: documentation
+    index_name_orbs: orbs-prod
+    index_name_cimgs: images_prod
+    extensions_to_index:
+      - html
+      - md
+      - adoc
+    nodes_to_index: 'p,h1'
+    settings:
+      highlightPreTag: '<strong>'
+      highlightPostTag: '</strong>'
+      attributesToSnippet: [
+        'content:80',
+        'headings',
+        'title'
+      ]
+      attributesToHighlight: [
+        'content:80',
+        'headings',
+        'title'
+      ]
+      minProximity: 3

@@ -1,0 +1,28 @@
+<head>
+  {{ with .Params.noindex }}<meta name="robots" content="noindex, follow"/> {{end}}
+  <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- TODO: TEES - handle the stripping of description once you know more hugo things -->
+  {{/* <meta name="description" content="{% if .Params.description %}{{ .Params.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}"> */}}
+
+  {{/* Handle Redirects, if the page front matter has listed one. */}}
+  {{ with .Params.redirect }}
+      <meta http-equiv="refresh" content="0; url={{ . }}">
+  {{ end }}
+  <title>{{with .Params.title }} {{.}} - CircleCI {{ else }} {{.Site.Title}} - CircleCI  {{ end }} </title>
+
+
+  <link href="{{ "/assets/docs/img/icons/favicon.png" | absURL }}" rel="icon" type="image/png" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
+
+  {{ partial "js-assets.html" .}}
+
+<!-- TODO: TEES - convert cached things to normal include s-->
+<!-- {% include_cached segment.html site=site page=page %} -->
+
+</head>

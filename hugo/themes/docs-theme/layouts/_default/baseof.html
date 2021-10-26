@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="{{ .Params.lang }}">
+  {{- partial "partials/head.html" . -}}
+  <div class="outer">
+    {{partial "partials/header.html"}}
+    <div class="main-body">
+      <!-- TODO TEES: a bunch of assigns from jekyll/classic-docs.html -->
+      {{ partial "partials/sidebar.html" . }}
+      {{- block "main" . }}{{- end }}
+    </div>
+</html>
