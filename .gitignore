@@ -28,3 +28,7 @@ vendor
 jekyll/_config_override.yml
 markdownlint-results.json
 .tool-versions
+
+# ignore hugo content for now until migration is complete
+hugo/content
+hugo/static
