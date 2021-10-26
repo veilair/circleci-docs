@@ -60,6 +60,20 @@ class Migrate
     end
   end
 
+
+  # our ascidoc files are unique:
+  # First - they don't have a title: front matter - jekyll renders the first `=`
+  # as the title.
+  #
+  # Next - if it DID have a title front matter - it gets shoved into the PDF we
+  # generate with asciidoctor-pdf
+  #
+  # SO - to convert for hugo we have to:
+  # a) loop over every file and grab the first h1 level heading (=) and turn it into front matter
+  # b) to make sure the pdfs render, we disable front matter in the scripts/buid_pdfs.sh script.
+  def migrate_ascidoc
+  end
+
   def print_manual_work
     puts ""
     puts "The following work needs to be done manually if this is the first time you are running this script: "

@@ -17,6 +17,18 @@ markup:
     codeFences: false
     # noClasses: true
 
+  asciidocExt:
+    safe: unsafe
+    attributes:
+      imagesdir: /docs/assets/img/docs/
+      relfileprefix: ../
+      outfilesuffix: /index.html
+      serverversion: 3.2.0
+      terraformversion: 0.15.4
+      kubectlversion: 1.19
+      helmversion: 3.4.0
+      kotsversion: 1.47.3
+
 
   goldmark:
     extensions:
