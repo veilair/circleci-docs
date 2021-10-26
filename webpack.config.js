@@ -8,7 +8,7 @@ module.exports = {
     vendor: './src-js/vendor.js',
   },
   output: {
-    path: path.join(__dirname, 'jekyll/assets/js'),
+    path: path.join(__dirname, 'hugo/themes/docs-theme/static/js'),
     publicPath: '',
     filename: '[name].bundle.js',
   },

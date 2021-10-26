@@ -4,8 +4,10 @@ require 'fileutils'
 
 class Migrate
   @@dirs_to_copy = {'jekyll/_cci2' => 'hugo/content/2.0',
-                    'jekyll/assets' => "hugo/static",
+                    'jekyll/assets/img/' => "hugo/static/assets/img",
                    }
+
+  @@dirs_to_delete = ["hugo/static/assets/img/docs/_unused"]
   @@replacements_to_make = {
     /\{\{\s*site.baseurl\s*\}\}/ => '{{< baseurl >}}',
     "endraw"                     => '/raw',
@@ -44,12 +46,16 @@ class Migrate
       files = get_markdown_files(hugo)
       ## open each file, and for each replacement, make the replacement.
       files.each do |f|
+        # p f
         file_text = File.read(f)
-        replaced_text = ""
+        # replaced_text = ""
         @@replacements_to_make.each do |jekyll_syntax, hugo_syntax|
-          replaced_text = file_text.gsub!(jekyll_syntax, hugo_syntax)
-          File.open(f, "w") { |file| file.puts replaced_text }
+          # replaced_text = file_text.gsub!(jekyll_syntax, hugo_syntax)
+          file_text.gsub!(jekyll_syntax, hugo_syntax)
+
         end
+
+        File.open(f, "w") { |file| file.puts file_text }
       end
     end
   end
@@ -66,7 +72,12 @@ class Migrate
     puts "copying content from jekyll to hugo:"
     @@dirs_to_copy.each do | jekyll, hugo |
       puts "copying #{jekyll} => #{hugo}"
+      puts
+      FileUtils.mkdir_p hugo # make the directory if doesn't exist yet.
       FileUtils.copy_entry jekyll, hugo
+    end
+    @@dirs_to_delete.each do | dir |
+      FileUtils.remove_dir(dir)
     end
   end
 end

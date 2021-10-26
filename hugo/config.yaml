@@ -4,7 +4,13 @@ languageCode: en-us
 title: CircleCI Documentation
 
 # TODO TEES ignoring ascidoc until finding how to set that up with hugo.
-ignorefiles: ["_*.adoc", "project-walkthrough.md"]
+ignoreFiles:
+  - 2.0/_server-3-ops-guide.adoc
+  - 2.0/_aws-install.adoc
+  - 2.0/_ops-guide.adoc
+  - 2.0/_server-3-install-guide.adoc
+  - 2.0/_server-3-overview.adoc
+  - 2.0/project-walkthrough.md
 
 markup:
   highlight:
@@ -45,19 +51,19 @@ cascade:
 ## Static assets are aggregated from two places:
 ### - Theme - (css, js, images specific to the styling of the site)
 ### - Root folder  - (screenshots used for content).
-# staticDir:
-# - static
-# - themes/docs-theme/static
+staticDir:
+- static
+- themes/docs-theme/static
 
 
 #
 # All custom site variables go under "params"
+# TODO: TEES - make a prod version of this file with the correct keys
 params:
   gh_url: "https://github.com/circleci/circleci-docs"
 
+  segment: 'mAJ9W2SwLHgmJtFkpaXWCbwEeNk9D8CZ'
   optimizely: "GfYszBpMkefBSwiiEkH3b3"
-
-
 
   rollbar_env: development
 
