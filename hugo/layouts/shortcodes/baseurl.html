@@ -1,4 +1,9 @@
 {{/* This shortcode replicates jekyll's site.baseurl feature
      This way we can get the root url which is required for linking files and images
+
+     NOTE: normally, .Page.Site.BaseURL returns the site url with a trailing forward "/"
+     whereas the way we used Jekyll required writing the "/" whenever using site.baseurl.
+     So, rater than find and replace every "/" and possibly miss somethin during the migration
+     I've just set this shortcode to trim the trailing slash.
 */}}
-{{ .Page.Site.BaseURL }}
+{{ trim .Page.Site.BaseURL "/"}}
