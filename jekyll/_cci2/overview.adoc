@@ -1,5 +1,4 @@
 ---
-title: FOOBAR
 version:
 - Server v2.x
 - Server Admin

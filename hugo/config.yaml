@@ -5,17 +5,12 @@ title: CircleCI Documentation
 
 # TODO TEES ignoring ascidoc until finding how to set that up with hugo.
 ignoreFiles:
-  - 2.0/_server-3-ops-guide.adoc
-  - 2.0/_aws-install.adoc
-  - 2.0/_ops-guide.adoc
-  - 2.0/_server-3-install-guide.adoc
-  - 2.0/_server-3-overview.adoc
-  - 2.0/project-walkthrough.md
+  - "[^\_].adoc" # ignore all ascidoc that starts with "_"
+  - 2.0/project-walkthrough.md # TODO: Tees - this file hahs syntax issues that will be fixed if this ever ships)
 
 markup:
   highlight:
     codeFences: false
-    # noClasses: true
 
   asciidocExt:
     safe: unsafe
