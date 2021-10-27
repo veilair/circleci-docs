@@ -3,10 +3,21 @@ disablePathToLower: true
 languageCode: en-us
 title: CircleCI Documentation
 
-# TODO TEES ignoring ascidoc until finding how to set that up with hugo.
 ignoreFiles:
   - "[^\_].adoc" # ignore all ascidoc that starts with "_"
-  - 2.0/project-walkthrough.md # TODO: Tees - this file hahs syntax issues that will be fixed if this ever ships)
+  - ".pdf"
+  - project-walkthrough.md # TODO: Tees - this file has syntax issues that will be fixed if this migration ever ships)
+
+defaultContentLanguage: en
+languages:
+  en:
+    contentDir: content/english/
+    languageName: English
+    weight: 1;
+  ja:
+    contentDir: content/japanese/
+    languageName: Japanese
+    weight: 2;
 
 markup:
   highlight:

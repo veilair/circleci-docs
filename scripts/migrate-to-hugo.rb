@@ -3,7 +3,8 @@
 require 'fileutils'
 
 class Migrate
-  @@dirs_to_copy = {'jekyll/_cci2' => 'hugo/content/2.0',
+  @@dirs_to_copy = {'jekyll/_cci2' => 'hugo/content/english/2.0/',
+                    'jekyll/_cci2_ja' => 'hugo/content/japanese/2.0/',
                     'jekyll/assets/img/' => "hugo/static/assets/img",
                    }
 
@@ -11,7 +12,7 @@ class Migrate
   @@md_syntax_mapping = {
     /\{\{\s*site.baseurl\s*\}\}/ => '{{< baseurl >}}',
     "endraw"                     => '/raw',
-    /\{:\s*.no_toc/              => "{.no_toc}",
+    /\{:\s*.no_toc/              => "{.no_toc",
     /\{:\s*class=/               => "{class=",
     /\{: #/                      => "{#",
     "* TOC"                      => "",
@@ -24,15 +25,18 @@ class Migrate
     copy_2_0
     replace_md_syntax
     migrate_asciidoc
-    rename_index
+    rename_indexs
     print_manual_work
   end
 
 
   # jekyll has an index.md, which hugo expects to be _index to differentiate it
   # as a "list" page type, rather than a" single
-  def rename_index
-    File.rename("hugo/content/2.0/index.md", "hugo/content/2.0/_index.md") if File.file?("hugo/content/2.0/index.md")
+  def rename_indexs
+    Dir.glob("hugo/content/**/index.md").each do |f|
+      puts(f)
+      File.rename(f, "_index.md")
+    end
   end
 
   # glob all markdown files that were copied into hugo, open them, swap

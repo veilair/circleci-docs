@@ -21,7 +21,3 @@ import * as Experiments from './experiments';
 window.Cookie = Cookie;
 window.AnalyticsClient = AnalyticsClient; // because it only has static methods, AnalyticsClient is not instantiated
 window.OptimizelyClient = new OptimizelyClient();
-
-// alert("hi")
-//
-console.log("foo", AnalyticsClient, OptimizelyClient);
