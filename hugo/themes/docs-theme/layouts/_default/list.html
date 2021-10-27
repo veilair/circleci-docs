@@ -1,1 +1,17 @@
-{{ .Content }}
+{{define "main"}}
+<div class="article-toc-footer">
+  <div class="article-toc">
+    <div class="article-container docs" id="main">
+      <article>
+        <div>
+          <h1 id="{{ .Params.title | anchorize }}">{{ .Params.title }}</h1>
+        </div>
+        {{ partial "version-badge.html" . }}
+        {{ .Content }}
+
+        {{ partial "doc-footer.html"}}
+      </article>
+    </div>
+  </div>
+</div>
+{{end}}

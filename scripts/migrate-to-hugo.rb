@@ -3,8 +3,8 @@
 require 'fileutils'
 
 class Migrate
-  @@dirs_to_copy = {'jekyll/_cci2' => 'hugo/content/english/2.0/',
-                    'jekyll/_cci2_ja' => 'hugo/content/japanese/2.0/',
+  @@dirs_to_copy = {'jekyll/_cci2' => 'hugo/content/english/2.0',
+                    'jekyll/_cci2_ja' => 'hugo/content/japanese/2.0',
                     'jekyll/assets/img/' => "hugo/static/assets/img",
                    }
 
@@ -18,13 +18,12 @@ class Migrate
     "* TOC"                      => "",
     /\{:toc\}/                   => "",
     /\{:.tab/                    => "{.tab"
-
   }
 
   def initialize
     copy_2_0
     replace_md_syntax
-    migrate_asciidoc
+    add_asciidoc_frontmatter
     rename_indexs
     print_manual_work
   end
@@ -87,9 +86,14 @@ class Migrate
 
   # The way we format asciidoc for jekyll is different than what hugo needs.
   # This method extracts the title syntax and turns it into front matter on our adoc files.
-  def migrate_asciidoc
+  def add_asciidoc_frontmatter
     @@dirs_to_copy.each do | _, hugo|
-      adoc_files = Dir.glob("#{hugo}/**/*.adoc")
+      # get all ascidocs that do not start with an `_`
+      adoc_files = Dir.glob("#{hugo}/**/*.adoc").select { |file|
+        File.basename(file) =~ /^[^_]/
+      }
+
+      # iterate on adoc files and add title's to the front matter
       adoc_files.each do |f|
         file_lines = File.readlines(f, chomp: true)
         title = get_asciidoc_title(file_lines, f)
