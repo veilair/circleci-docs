@@ -375,7 +375,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('#main a')
-    .not('.no-external-icon')
+    .not('.license-notice *')
     .each(function () {
       $(this).wrap("<div class='external-link-tag-wrapper'></div>");
       var inlineSVG =
