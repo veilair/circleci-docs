@@ -3,10 +3,32 @@
   <nav class="sidebar fixed">
     <div class="sidebar-item-group">
       {{ $curr_url := .Page.Permalink | string }}
-      {{ $base_url := .Site.BaseURL | string }}
-      {{ $link_slug := (index (split $curr_url $base_url) 1)}}
-      <script>console.log({{$link_slug}})</script>
+      {{ $base_url := trim (.Site.BaseURL | string ) "/"}}
+      {{ $url_slug := (index (split $curr_url $base_url) 1)}}
+      {{ $page_lang := .Params.lang }}
 
+      {{range $main_item := (index .Site.Data.sidenav $page_lang)}}
+      {{$section_slug := (index . "name") | urlize | lower}}
+      <li class="main-nav-item closed" data-section="{{ $section_slug }}">
+        <div class="list-wrap">
+          {{ $link_slug :=  index $main_item "link"}}
+          {{ $link_is_active := (cond (eq $link_slug $url_slug) true false) }}
+          {{ $display_name := (cond (ne (index . "i18n_name") nil) (index . "i18n_name") (index . "name")) }}
+
+          {{with (index . "icon")}}
+          <img class="icon" src="{{ $base_url }}/assets/img/{{ . }}">
+          {{end}}
+
+          <span class="nav-span">{{ index . "name" }}</span>
+
+          {{with (index . "children")}}
+          <img class="arrow" crossorigin="anonymous" src="{{ $base_url }}/assets/img/docs/arrow-right.svg">
+          {{end}}
+
+
+        </div>
+      </li>
+      {{end}}
 
       {{/*
 
