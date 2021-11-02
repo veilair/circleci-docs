@@ -121,7 +121,7 @@ collections:
     name: "Style Guide"
     site_section: true
     output: true
-    permalink: /style/
+    permalink: /style/:path/
     prefix: "/style"
     selectorName: "style"
     
