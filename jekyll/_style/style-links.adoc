@@ -7,4 +7,10 @@
 
 This guide is a reference for contributors to CircleCI docs. Our style guide is constantly evolving so you will probably find older documentation does not meet the requirements set out here. Use this guide to help you write new docs, and when working on existing documentation it would be great if you can make edits to help us get older documents to conform too!
 
+== Links
+Links should explicitly name the document or section to which they are linking.
+
+**Good:** Refer to the https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project[Setting and environment variable in a project] section of the Environment Variables document. +
+**Bad:** See here for info on https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project[adding project-level environment variables]. 
+
 
