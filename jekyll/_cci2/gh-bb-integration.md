@@ -5,7 +5,11 @@ description: Using GitHub or Bitbucket
 categories: [migration]
 Order: 60
 version:
-  - Cloud
+- Cloud
+- Server v3.x
+- Server v2.x
+
+
 ---
 
 This document provides an overview of using GitHub, GitHub Enterprise, or
@@ -331,8 +335,7 @@ and the CircleCI project is `https://circleci.com/gh/you/test-repo`.
 1. Create an SSH key pair by following the
    [GitHub instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
    When prompted to enter a passphrase, do **not** enter one:
-
-```
+```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
@@ -435,7 +438,7 @@ requires, and then associate its user key with your project on CircleCI.
 ## Establishing the authenticity of an SSH host
 {: #establishing-the-authenticity-of-an-ssh-host }
 
-When using SSH keys to checkout repositories, it may be neccesary to add the
+When using SSH keys to checkout repositories, it may be necessary to add the
 fingerprints for GitHub or BitBucket to a "known hosts" file
 (`~/.ssh/known_hosts`) so that the executor can verify that the host it's
 connecting to is authentic. The `checkout`job step does this automatically, so
