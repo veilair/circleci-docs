@@ -1,15 +1,19 @@
 // Values from outer project variables
 ///////////////////////////////////////////////////////////////////////////////
 
-$zindex-navbar-fixed:      1030;
-$green: #04AA51;
+$zindex-navbar-fixed: 1030;
 $blue-darker: #337ab7;
 $white: #FFFFFF;
 $gray: #D8D8D8;
 $black: #161616;
 $transition-duration-medium: 400ms;
 $padding-large-vertical: 11px;
-
+$btn-outer-green: #049B4A;
+$btn-hover-green: #048C43;
+$btn-selected-green: #00701B;
+$btn-outer-blue: #0078CA;
+$btn-hover-blue: #0062B0;
+$btn-selected-blue: #004A95;
 
 // Copy of outer blog-nav, renmaed to global-nav
 ///////////////////////////////////////////////////////////////////////////////
@@ -186,12 +190,12 @@ $padding-large-vertical: 11px;
   }
 
   --link-color: #{$black};
-  --link-color-hover: #{$green};
+  --link-color-hover: #{$btn-hover-green};
 
   &:hover,
   &:focus {
     text-decoration: none;
-    color: $green;
+    color: $btn-selected-green;
   }
 
   &.active {
@@ -360,15 +364,15 @@ body.global-nav-open .global-nav--search-button {
     transition: background-color 300ms;
     flex: auto 0 0;
     color: #ffffff;
-    background-color: #049b4a;
+    background-color: $btn-outer-green;
     min-width: 7rem;
 
     @media (max-width: $screen-xs-max) {
     }
-  }
 
-  .btn-primary:hover {
-    background-color: #048c43;
+    &:hover {
+      background-color: $btn-hover-green;
+    }
   }
 
   // Replacement for .molecule-search
