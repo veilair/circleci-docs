@@ -2,7 +2,7 @@
 layout: classic-docs
 title: "Concepts"
 short-title: "Concepts"
-description: "CircleCI 2.0 concepts"
+description: "CircleCI concepts"
 categories: [getting-started]
 order: 1
 version:
@@ -11,7 +11,7 @@ version:
 - Server v2.x
 ---
 
-This guide introduces some basic concepts to help you understand how CircleCI manages your CICD pipelines.
+This guide introduces some basic concepts to help you understand how CircleCI manages your CI/CD pipelines.
 
 * TOC
 {:toc}
@@ -82,7 +82,7 @@ Pipelines represent methods for interacting with your configuration:
 ## Orbs
 {: #orbs }
 
-Orbs are reusable snippets of code that help automate repeated processes, speed up project setup, and make it easy to integrate with third-party tools. See [Using Orbs]({{ site.baseurl }}/2.0/using-orbs/) for details about how to use orbs in your config and an introduction to orb design. Visit the [Orbs Registry](https://circleci.com/developer/orbs) to search for orbs to help simplify your config.
+Orbs are reusable snippets of code that help automate repeated processes, speed up project setup, and make it easy to integrate with third-party tools. See [Using Orbs]({{ site.baseurl }}/2.0/orb-concepts/) for details about how to use orbs in your config and an introduction to orb design. Visit the [Orbs Registry](https://circleci.com/developer/orbs) to search for orbs to help simplify your config.
 
 The graphic above illustrating an example Java configuration could be simplified using orbs. The following illustration demonstrates a simplified configuration with [the Maven orb](https://circleci.com/developer/orbs/orb/circleci/maven). Here, the orb will setup a default executor that can execute steps with maven and run a common job (`maven/test`).
 
