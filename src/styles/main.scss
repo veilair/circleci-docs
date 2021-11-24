@@ -43,6 +43,10 @@ a {
 		// as the target in event listeners (for analytics tracking)
 		pointer-events: none;
 	}
+
+  &.active {
+	  color: $link-text-color !important;
+  }
 }
 
 .container-semi-fluid {
@@ -280,6 +284,18 @@ article{
 div.align-center img{
 	max-width: 90%;
 	text-align: center;
+}
+
+// Insights page column highlights
+#insights-table{
+	.highlight {
+		color: #1B639A;
+		background: #F4F7FA;
+		font-weight: bold;
+	}
+	div {
+		scroll-margin-top: 5rem;
+	}
 }
 
 // Homepage
