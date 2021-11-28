@@ -137,6 +137,13 @@ defaults:
   -
     scope:
       path: ""
+      type: "style"
+    values:
+      lang: "en"
+
+  -
+    scope:
+      path: ""
     values:
       hide: false
       search: true
