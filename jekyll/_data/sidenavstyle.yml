@@ -1,0 +1,22 @@
+en:
+- name: Style
+  icon: icons/sidebar/getting_started.svg
+  children:
+    - name: CircleCI Headings
+      link: style/style-headings/
+    - name: CircleCI Links
+      link: style/style-links/
+    - name: CircleCI Overview
+      link: style/style-overview/
+
+ja:
+- name: Style
+  i18n_name: はじめよう
+  icon: icons/sidebar/getting_started.svg
+  children:
+    - name: Overview
+      i18n_name: 概要
+      children:
+        - name: Welcome
+          i18n_name: ようこそ
+          link: ja/style/style-overview/

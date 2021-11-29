@@ -1,5 +1,5 @@
 = CircleCI docs style guide
-:page-layout: classic-docs
+:page-layout: classic-docs-style
 :page-liquid:
 :icons: font
 :toc: macro

@@ -8,7 +8,7 @@
 
 <div class="outer">
   {% assign lang = page.lang %}
-  {% assign sidenav = site.data.sidenav[lang] %}
+  {% assign sidenav = site.data.sidenavstyle[lang] %}
   {% include_cached global-nav.html site=site page=page lang=lang sidenav=sidenav %}
   {% include_cached hits-target.html %}
   <div class="main-body">
@@ -54,6 +54,10 @@
         {% if page.toc != false %}
         <aside class="full-height">
           <div class='full-height-sticky'>
+            <h5 class="toc-heading">On this page</h5>
+            <div class="toc-indent">
+              {{ content | toc_only }}
+            </div>
             {% if page.suggested != false %}
             <div id="related-resources">
               <h5 class="related-heading">Helpful resources</h5>
@@ -68,10 +72,6 @@
               </div>
             </div>
             {% endif %}
-            <h5 class="toc-heading">On this page</h5>
-            <div class="toc-indent">
-              {{ content | toc_only }}
-            </div>
           </div>
         </aside>
         {% endif %}
