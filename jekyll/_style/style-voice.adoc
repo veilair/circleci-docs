@@ -1,0 +1,18 @@
+= Style and voice
+:page-layout: classic-docs
+:page-liquid:
+:icons: font
+:toc: macro
+:toc-title:
+
+== Be direct,confident and use active voice
+Use an active voice, talk directly to the reader using simple, direct, clear and confident language. Using active voice helps us to keep instructions as short as possible, and is, in most cases, the quickest way to convey meaning to the reader
+
+**Good**: Click **Go** and your project will complete.
+**Bad**: When you click the **Go** button your project should complete.
+
+== Write for everyone
+Assume technical competence but explain concepts clearly and simply. Some concepts we write about are complex, and outside a non-technical reader's experience but the flow of CircleCI docs should be accessible to anyone.
+
+== Write with empathy
+Steer clear of using assumptions about the complexity of a process. Avoid descriptions like "easy", "easily" or "simply".

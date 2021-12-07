@@ -1,26 +1,30 @@
-= CircleCI docs style guide
+= Headings
 :page-layout: classic-docs
 :page-liquid:
 :icons: font
 :toc: macro
 :toc-title:
 
-This guide is a reference for contributors to CircleCI docs. Our style guide is constantly evolving so you will probably find older documentation does not meet the requirements set out here. Use this guide to help you write new docs, and when working on existing documentation it would be great if you can make edits to help us get older documents to conform too!
+* Write headings in a logical sequence. Section titles read out in order should present a good storyline for the doc.
 
-== Choosing helpful headings
-All headings are in sentence case. This means only the first word and proper nouns are capitalized. Jekyll automatically creates an H1 heading from the doc title, so only use H2 and greater in the body of the doc.
+* Do not skip heading levels – try to keep in headings in level order, rather than, for example, jumping from `h2` to `h4`.
 
+* Try not to have a heading with no paragraph text to accompany it. Add at least an overview or intro to what comes next.
+
+* All headings are in sentence case. This means only the first word and proper nouns are capitalized. 
+
+* Jekyll automatically creates an H1 heading from the doc title, so only use H2 and greater in the body of the doc.
++
 **Good:** CircleCI docs style guide +
 **Bad:** CircleCI Docs Style Guide
 
-Where possible, headings should begin with a verb.
-
+* Where possible, headings should begin with a verb.
++
 **Good:** "Grooming cats" +
 **Bad:** "Cats"
 
-When referencing headings in prose, use the full heading with no quotes.
-
-**Good:** <<headings>> +
-**Bad:** "<<headings>>"
-
+* When referencing headings in prose, use the full heading with no quotes, and use title case.
++
+**Good:** For more information, see the Hello World guide. +
+**Bad:** For more infromation, see the "Hello world" guide.
 

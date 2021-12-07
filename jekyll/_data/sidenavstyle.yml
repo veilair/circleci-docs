@@ -2,24 +2,26 @@ en:
 - name: Style
   icon: icons/sidebar/getting_started.svg
   children:
-    - name: CircleCI Headings
+    - name: Style and voice
+      link: style/style-voice/
+    - name: Headings
       link: style/style-headings/
-    - name: CircleCI Links
+    - name: Links
       link: style/style-links/
-    - name: CircleCI Overview
-      link: style/style-overview/
+    - name: Grammar
+      link: style/style-grammar/
 
 ja:
 - name: Style
   i18n_name: はじめよう
   icon: icons/sidebar/getting_started.svg
   children:
-    - name: CircleCI Headings
+    - name: Style and voice
+      i18n_name: 概要
+      link: ja/style/style-voice/
+    - name: CircleCI headings
       i18n_name: 概要
       link: ja/style/style-headings/
-    - name: CircleCI Links
+    - name: CircleCI links
       i18n_name: 概要
       link: ja/style/style-links/
-    - name: CircleCI Overview
-      i18n_name: 概要
-      link: ja/style/style-overview/
