@@ -1,0 +1,10 @@
+= Using lists
+:page-layout: classic-docs
+:page-liquid:
+:icons: font
+:toc: macro
+:toc-title:
+
+* Use a capital letter at the start of each item in a list.
+
+* If the text in the bullet is a full sentence or completes the intro stem, use a full stop at the end. If it is not/does not then do not.
