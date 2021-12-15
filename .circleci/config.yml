@@ -470,7 +470,7 @@ jobs:
           cache-version: &npm-cache-version v1 # Gets cache version from project environment variable (E.g v1)
       - run:
           name: Minimize Images
-          command: bash ./scripts/process-images.sh _site/${JEKYLL_BASENAME}/assets/img
+          command: yarn minimize-images
       - persist_to_workspace:
           root: *workspace_root
-          paths: _site/${JEKYLL_BASENAME}/assets/*
+          paths: _site/docs/assets/*
