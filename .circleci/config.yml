@@ -73,7 +73,7 @@ commands:
       - run:
           name: Populate JEKYLL_BASENAME env var
           command: |
-            if [ ${CIRCLE_BRANCH} = master -o ${CIRCLE_BRANCH} = main ]; then
+            if [ ${CIRCLE_BRANCH} = master -o ${CIRCLE_BRANCH} = main -o ${CIRCLE_BRANCH} = /.*-preview/ ]; then
               echo "export JEKYLL_BASENAME=docs" >> $BASH_ENV;
             else
               echo "export JEKYLL_BASENAME=${CIRCLE_BRANCH}" >> $BASH_ENV;
@@ -470,7 +470,7 @@ jobs:
           cache-version: &npm-cache-version v1 # Gets cache version from project environment variable (E.g v1)
       - run:
           name: Minimize Images
-          command: yarn minimize-images
+          command: yarn minimize-img
       - persist_to_workspace:
           root: *workspace_root
           paths: _site/docs/assets/*
