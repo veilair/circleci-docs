@@ -461,6 +461,7 @@ jobs:
     working_directory: *workspace_root
     steps:
       - *attach_workspace
+      - set-jekyll-basename
       - run: 
           name: move to correct workspace 
           command: cd /tmp/workspace 
@@ -469,7 +470,7 @@ jobs:
           cache-version: &npm-cache-version v1 # Gets cache version from project environment variable (E.g v1)
       - run:
           name: Minimize Images
-          command: node ./scripts/process-images.sh _site/${JEKYLL_BASENAME}/assets/img
+          command: bash ./scripts/process-images.sh _site/${JEKYLL_BASENAME}/assets/img
       - persist_to_workspace:
           root: *workspace_root
           paths: _site/${JEKYLL_BASENAME}/assets/*
